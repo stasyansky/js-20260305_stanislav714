@@ -12,9 +12,6 @@ export function sortStrings(arr, param = 'asc') {
   });
 
   return [...arr].sort(
-    (a, b) =>
-      param === 'asc'
-        ? collator.compare(a, b)
-        : collator.compare(b, a)
+    (a, b) => collator.compare(a, b) * (param === 'asc' ? 1 : -1)
   );
 }
